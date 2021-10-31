@@ -7,7 +7,7 @@ from sklearn.metrics import r2_score
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsRegressor
-%matplotlib inline
+#%matplotlib inline
 
 #Read The Data Set 
 df=pd.read_csv('Advertising.csv')
