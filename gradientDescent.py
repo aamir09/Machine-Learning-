@@ -37,34 +37,29 @@ x=np.linspace(15,25,500)
 y=gen_y(x)
 
 #Visulaize the plot
-
-plt.rcParams['figure.figsize']=(8,8)
-plt.plot(x,y,color='r',linewidth=3)
-plt.xlabel('Weight',color='g',fontsize=20)
-plt.ylabel('Loss',color='r',fontsize=20)
-plt.title('Loss Function',fontsize=25,color='b')
+fig,ax=plt.subplots(nrows=1,ncols=2,figsize=(14,8))
+ax[0].plot(x,y,color='r',linewidth=3)
+ax[0].set_xlabel('Weight',color='g',fontsize=20)
+ax[0].set_ylabel('Loss',color='r',fontsize=20)
+ax[0].set_title('Loss Function',fontsize=25,color='b')
 
 #Choose a random starting point and use the gradient descent function to reach the minima
 start=15.25
 best_weight=np.round(Gradient_Descent(start),2)
 print(f'The optimal weight is {best_weight}')
-
-
 #To plot iterations 
 x_plot=np.linspace(start+0.1,best_weight-0.3,152)
 
 ##A Visual Plot of our excercise 
-plt.rcParams['figure.figsize']=(10,10)
-plt.plot(x,y,color='r',linewidth=3)
-plt.scatter(best_weight,gen_y(best_weight),linewidth=16,label='Optimal Wight',color='blue')
-plt.scatter(start,gen_y(start),linewidth=16,label='Start',color='orange')
-plt.scatter(x_plot,gen_y(x_plot),linewidth=16,label='Iteration',color='#FDDF00',alpha=0.3)
-plt.xlabel('Weight',color='g',fontsize=20)
-plt.ylabel('Loss',color='r',fontsize=20)
-plt.title('Loss Function',fontsize=25,color='b')
-plt.legend(markerscale=0.2)
+ax[1].plot(x,y,color='r',linewidth=3)
+ax[1].scatter(best_weight,gen_y(best_weight),linewidth=16,label='Optimal Wight',color='blue')
+ax[1].scatter(start,gen_y(start),linewidth=16,label='Start',color='orange')
+ax[1].scatter(x_plot,gen_y(x_plot),linewidth=16,label='Iteration',color='#FDDF00',alpha=0.3)
+ax[1].set_xlabel('Weight',color='g',fontsize=20)
+ax[1].set_ylabel('Loss',color='r',fontsize=20)
+ax[1].set_title('Finding Minima with Gradient Descent',fontsize=25,color='b')
+ax[1].legend(markerscale=0.2)
 plt.tight_layout()
-
 
 
 
